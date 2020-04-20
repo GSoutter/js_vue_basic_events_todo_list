@@ -11,11 +11,25 @@
 <body>
   <div id="app">
     <ul v-for="todo in this.todos">
-      <li>{{todo}}</li>
+      <li v-if="(todo.priority === 'High')" v-bind:class = "(todo.priority === 'High') ? 'priority-high' : 'priority-low'">
+        <span>Task: {{todo.task}}</span>
+        <span>Priority: {{todo.priority}}</span>
+      </li>
+    </ul>
+    <ul v-for="todo in this.todos">
+      <li v-if="(todo.priority === 'Low')" v-bind:class = "(todo.priority === 'High') ? 'priority-high' : 'priority-low'">
+        <span>Task: {{todo.task}}</span>
+        <span>Priority: {{todo.priority}}</span>
+      </li>
     </ul>
     <form v-on:submit.prevent="addNewTodo">
       <label for="new-todo">New Todo:</label>
         <input id= "new-todo" type="text" v-model="newTodo"/>
+        <label for="priority">High</label>
+        <input id= "priority" type="radio" v-model="todoPriority" value="High"/>
+        <label for="priority">Low</label>
+
+        <input id= "priority" type="radio" v-model="todoPriority" value="Low"/>
         <button type="submit" name="button">save</button>
     </form>
   </div>

@@ -1,0 +1,15 @@
+.priority-high {
+  border-style: solid;
+  border-color: orange;
+  font-weight: bold;
+}
+
+.priority-low {
+  border-style: solid;
+  border-color: grey;
+}
+
+li {
+  display: flex;
+  flex-direction: column
+}
